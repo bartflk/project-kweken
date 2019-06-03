@@ -13,28 +13,164 @@
 
   </head>
   <body>
+      <script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.js');</script>
+      <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      
+   
       <script type="text/javascript">
-        google.charts.load('current', {'packages':['bar']});
-        google.charts.setOnLoadCallback(drawChart);
+
+
+// $.getJSON('Data.json', function(obj) {
+
+// var chart = new google.visualization.LineChart($('#chart').get(0));
+
+// chart.draw(data, {title: 'Wimp Weather Station'});
+
+// });
+
+
+            // Load the Visualization API and the piechart package.
+          google.charts.load('current', {'packages':['corechart']});
+            
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.charts.setOnLoadCallback(drawChart);
+              
+            function drawChart() {
+              var data = new google.visualization.DataTable();
+
+                data.addColumn('number', 'X');
+
+                data.addColumn('number', 'hortensia');
+
+                data.addColumn('number', 'tomaat');
+              var jsonData = $.ajax({
+                  url: "./Data.json",
+                  dataType: "json",
+                  async: false
+                  }).responseText;
+                  console.log(jsonData);
+
+                    var options = {
+
+        hAxis: {
+
+          title: 'Time in days'
+
+        },
+
+        vAxis: {
+
+          title: 'ph waarde'
+
+        },
+
+        colors: ['#a52714', '#097138']
+
+      };
+                  
+              // Create our data table out of JSON data loaded from server.
+              var data = new google.visualization.DataTable(jsonData);
+        
+              // Instantiate and draw our chart, passing in some options.
+              var chart = new google.visualization.LineChart(document.getElementById('columnchart_material'));
+              chart.draw(data, options);
+            }    // Load the Visualization API and the piechart package.
+          //google.charts.load('current', {'packages':['corechart']});
+            
+          // Set a callback to run when the Google Visualization API is loaded.
+          //google.charts.setOnLoadCallback(drawChart);
+            
+          // function drawChart() {
+          //   var jsonData = $.ajax({
+          //       url: "Data.json",
+          //       dataType: 'JSON',
+          //       jsonpCallback: 'callbackFnc',
+          //       type: 'GET',
+          //       async: false,
+          //       crossDomain: true,
+          //       success: function () {
+          //         console.log('HELLO');
+                  
+          //        },
+          //       failure: function () { },
+          //       complete: function (data) {
+          //           if (data.readyState == '4' && data.status == '200') {
+          //               //errorLog.push({ IP: Host, Status: 'SUCCESS' })
+          //           }
+          //           else {
+          //               //errorLog.push({ IP: Host, Status: 'FAIL' })
+          //           }
+          //       }
+          //       //async: false
+          //       });
+            /*$.ajax({
+        url: 'Data.json',
+        dataType: 'JSONP',
+        jsonpCallback: 'callbackFnc',
+        type: 'GET',
+        async: false,
+        crossDomain: true,
+        success: function () { },
+        failure: function () { },
+        complete: function (data) {
+            if (data.readyState == '4' && data.status == '200') {
+                errorLog.push({ IP: Host, Status: 'SUCCESS' })
+            }
+            else {
+                errorLog.push({ IP: Host, Status: 'FAIL' })
+            }
+        }
+    });
+            
+           /* $.ajax({
+                url: "Data.json",
+                dataType: "jsonp",
+                //async: false
+                }).responseText;
+                */
+
+//                 var jsonData = $.ajax({
+
+//           url: "./dummy.json",
+
+//           dataType: "json",
+
+//           async: false
+
+//           }).responseText;
+                
+//             // Create our data table out of JSON data loaded from server.
+//             var data = new google.visualization.DataTable(jsonData);
+
+//             // Instantiate and draw our chart, passing in some options.
+//             var chart = new google.visualization.PieChart(document.getElementById('columnchart_material'));
+//             chart.draw(data, {width: 400, height: 240});
+//           }
+
+
+
+      google.charts.load('current', {'packages':['bar']});
+       google.charts.setOnLoadCallback(drawChart);
   
         function drawChart() {
           var data = google.visualization.arrayToDataTable([
-            ['Year', 'Radijs national', 'Hobby tuinder', 'EKO'],
-            ['2018', 4, 2, 1]
-          ]);
+             ['Year', 'Hobby tuinder', 'EKO', 'Radijs national'],
+             ['2018', 5, 4, 2]
+           ]);
   
-          var options = {
-            chart: {
-              title: 'Radijs cm groei in diameter',
-              subtitle: 'Radijs national, Hobby tuinder, EKO: 2018',
-            }
-          };
+        var options = {
+             chart: {
+              title: 'Radijs cm in diameter groei per dag',
+              subtitle: 'Hobby tuinder, EKO, Radijs national: 2018',
+             }
+           };
   
-          var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-  
-          chart.draw(data, google.charts.Bar.convertOptions(options));
-        }
+           var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+             chart.draw(data, google.charts.Bar.convertOptions(options));
+         }
+      
       </script>
 
 
@@ -43,7 +179,6 @@
 
 
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -52,14 +187,14 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Radijs national',     6],
-          ['Hobby tuinder',      6],
-          ['EKO',  7],
-          ['Anders', 3]
+          ['Hobby tuinder',     4],
+          ['EKO',      4],
+          ['Radijs national',  9],
+          ['Anders', 2]
         ]);
 
         var options = {
-          title: "Radijs markt procenten"
+          title: 'Radijs cm in diameter groei'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -90,7 +225,7 @@
         <main>
           <div class="container">
             <div class="row">
-              <div class="col-xl-4">
+              <div class="col-xl-4 col-md-6">
                 <div class="grafiek">
                   <div class="graph">
                       <div id="columnchart_material" style="width: 350px; height: 250px;"></div>
@@ -100,32 +235,33 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-4">
+              <div class="col-xl-4 col-md-6">
                 <div class="info">
-                  <div class="info1">
-                    <div class="infor1" style="height: 175px;">
-                        de Hobby tuinder radijs is een smakelijke lange helderrode radijs met een klein witpunt geschikt voor de teelt onder glas en vollegrond. 
-                        Zeer goed resistent tegen voosheid en zeer gezond gewas. 
-                        Dun op regels zaaien en eventueel later uitdunnen.
+                  <div class="info1" style="height: 175px;">
+                    <div class="infot1">
+                      de Hobby tuinder radijs is een smakelijke lange helderrode radijs met een klein witpunt geschikt voor de teelt onder glas en vollegrond. 
+                      Zeer goed resistent tegen voosheid en zeer gezond gewas. 
+                      Dun op regels zaaien en eventueel later uitdunnen.
                     </div>
                   </div>
-                  <div class="info1">
-                    <div class="infor2" style="height: 175px; margin-top: 40px;">
-                        EKO, ronde radijsjes voor de teelt alleen in de vollegrond. Redelijk resistent tegen voosheid. 
-                        Dun op regels zaaien en eventueel later uitdunnen. 
-                        Weinig bemesten, anders verhoogde kans op voosheid. Voldoende water geven voorkomt scherpheid.
+                  <div class="info1" style="height: 175px; margin-top: 40px;">
+                    <div class="infot2">
+                      EKO, ronde radijsjes voor de teelt alleen in de vollegrond. Redelijk resistent tegen voosheid. 
+                      Dun op regels zaaien en eventueel later uitdunnen. 
+                      Weinig bemesten, anders verhoogde kans op voosheid. Voldoende water geven voorkomt scherpheid.
                     </div>
                   </div>
-                  <div class="info1">
-                    <div class="infor3" style="height: 175px; margin-top: 30px;">
-                        Radijs national zaden geven heerlijke groenten! Deze biologische zaden kunnen worden gezaaid van maart tot juni. 
-                        Met deze voordelige zakjes biologische zaden zaait u Biologische zaden planten. 
-                        De exclusieve verpakking met biologische groentezaden bevat gedetailleerde plant- en kweek instructies.
+                  <div class="info1" style="height: 175px; margin-top: 30px;">
+                    <div class="infot3">
+                      Radijs national zaden geven heerlijke groenten! Deze biologische zaden kunnen worden gezaaid van maart tot juni. 
+                      Met deze voordelige zakjes biologische zaden zaait u Biologische zaden planten. 
+                      De exclusieve verpakking met biologische groentezaden bevat gedetailleerde plant- en kweek instructies.
+
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-xl-4">
+              <div class="col-xl-4 col-md-6">
                 <div class="keuze">
                   <div class="keuze1">
                     <a href="Kweken.html">
@@ -152,8 +288,8 @@
       <footer class="page-footer font-small blue" style="background-color: yellowgreen;">
 
           <!-- Copyright -->
-          <div class="footer-copyright text-center py-3">© 2018 Copyright:
-            <a href="https://mdbootstrap.com/education/bootstrap/"> www.snekattack.com</a>
+          <div class="footer-copyright text-center py-3">
+            <a href="https://mdbootstrap.com/education/bootstrap/">www.nietklikken.com</a>
           </div>
           <!-- Copyright -->
         

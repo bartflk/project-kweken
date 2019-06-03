@@ -1,0 +1,16 @@
+{
+  "name": "electron_p3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "admin-lte": "^2.4.10",
+    "electron": "^4.1.4",
+    "g": "^2.0.1"
+  }
+}

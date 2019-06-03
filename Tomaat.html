@@ -13,28 +13,164 @@
 
   </head>
   <body>
+      <script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.js');</script>
+      <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      
+   
       <script type="text/javascript">
-        google.charts.load('current', {'packages':['bar']});
-        google.charts.setOnLoadCallback(drawChart);
+
+
+// $.getJSON('Data.json', function(obj) {
+
+// var chart = new google.visualization.LineChart($('#chart').get(0));
+
+// chart.draw(data, {title: 'Wimp Weather Station'});
+
+// });
+
+
+            // Load the Visualization API and the piechart package.
+          google.charts.load('current', {'packages':['corechart']});
+            
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.charts.setOnLoadCallback(drawChart);
+              
+            function drawChart() {
+              var data = new google.visualization.DataTable();
+
+                data.addColumn('number', 'X');
+
+                data.addColumn('number', 'hortensia');
+
+                data.addColumn('number', 'tomaat');
+              var jsonData = $.ajax({
+                  url: "./Data.json",
+                  dataType: "json",
+                  async: false
+                  }).responseText;
+                  console.log(jsonData);
+
+                    var options = {
+
+        hAxis: {
+
+          title: 'Time in days'
+
+        },
+
+        vAxis: {
+
+          title: 'ph waarde'
+
+        },
+
+        colors: ['#a52714', '#097138']
+
+      };
+                  
+              // Create our data table out of JSON data loaded from server.
+              var data = new google.visualization.DataTable(jsonData);
+        
+              // Instantiate and draw our chart, passing in some options.
+              var chart = new google.visualization.LineChart(document.getElementById('columnchart_material'));
+              chart.draw(data, options);
+            }    // Load the Visualization API and the piechart package.
+          //google.charts.load('current', {'packages':['corechart']});
+            
+          // Set a callback to run when the Google Visualization API is loaded.
+          //google.charts.setOnLoadCallback(drawChart);
+            
+          // function drawChart() {
+          //   var jsonData = $.ajax({
+          //       url: "Data.json",
+          //       dataType: 'JSON',
+          //       jsonpCallback: 'callbackFnc',
+          //       type: 'GET',
+          //       async: false,
+          //       crossDomain: true,
+          //       success: function () {
+          //         console.log('HELLO');
+                  
+          //        },
+          //       failure: function () { },
+          //       complete: function (data) {
+          //           if (data.readyState == '4' && data.status == '200') {
+          //               //errorLog.push({ IP: Host, Status: 'SUCCESS' })
+          //           }
+          //           else {
+          //               //errorLog.push({ IP: Host, Status: 'FAIL' })
+          //           }
+          //       }
+          //       //async: false
+          //       });
+            /*$.ajax({
+        url: 'Data.json',
+        dataType: 'JSONP',
+        jsonpCallback: 'callbackFnc',
+        type: 'GET',
+        async: false,
+        crossDomain: true,
+        success: function () { },
+        failure: function () { },
+        complete: function (data) {
+            if (data.readyState == '4' && data.status == '200') {
+                errorLog.push({ IP: Host, Status: 'SUCCESS' })
+            }
+            else {
+                errorLog.push({ IP: Host, Status: 'FAIL' })
+            }
+        }
+    });
+            
+           /* $.ajax({
+                url: "Data.json",
+                dataType: "jsonp",
+                //async: false
+                }).responseText;
+                */
+
+//                 var jsonData = $.ajax({
+
+//           url: "./dummy.json",
+
+//           dataType: "json",
+
+//           async: false
+
+//           }).responseText;
+                
+//             // Create our data table out of JSON data loaded from server.
+//             var data = new google.visualization.DataTable(jsonData);
+
+//             // Instantiate and draw our chart, passing in some options.
+//             var chart = new google.visualization.PieChart(document.getElementById('columnchart_material'));
+//             chart.draw(data, {width: 400, height: 240});
+//           }
+
+
+
+      google.charts.load('current', {'packages':['bar']});
+       google.charts.setOnLoadCallback(drawChart);
   
         function drawChart() {
           var data = google.visualization.arrayToDataTable([
-            ['Year', 'Pomodori', 'Tomato', 'Hobby tuinder'],
-            ['2018', 5, 7, 2]
-          ]);
+             ['Year', 'Pomodori', 'Tomato', 'Buzzy'],
+             ['2018', 2, 2, 1]
+           ]);
   
-          var options = {
-            chart: {
-              title: 'Tomaat cm in diameter groei',
-              subtitle: 'Pomodori, Tomato, Hobby tuinder: 2018',
-            }
-          };
+        var options = {
+             chart: {
+              title: 'Tomaat cm in diameter groei per dag',
+              subtitle: 'Pomodori, Tomato, Buzzy: 2018',
+             }
+           };
   
-          var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-  
-          chart.draw(data, google.charts.Bar.convertOptions(options));
-        }
+           var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+             chart.draw(data, google.charts.Bar.convertOptions(options));
+         }
+      
       </script>
 
 
@@ -43,7 +179,6 @@
 
 
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -52,9 +187,9 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Pomodori',     4],
-          ['Tomato',      3],
-          ['Hobby tuinder',  8],
+          ['Pomodori',     2],
+          ['Tomato',      5],
+          ['Buzzy',  11],
           ['Anders', 2]
         ]);
 
@@ -90,43 +225,44 @@
         <main>
           <div class="container">
             <div class="row">
-              <div class="col-xl-4">
+              <div class="col-xl-4 col-md-6">
                 <div class="grafiek">
                   <div class="graph">
-                    <div id="columnchart_material" style="width: 350px; height: 250px;"></div>
+                      <div id="columnchart_material" style="width: 350px; height: 250px;"></div>
                   </div>
                   <div class="graph">
                       <div id="piechart" style="width: 350px; height: 250px;"></div>
                   </div>
                 </div>
               </div>
-              <div class="col-xl-4">
+              <div class="col-xl-4 col-md-6">
                 <div class="info">
-                  <div class="info1">
-                    <div class="infol1" style="height: 175px;">
-                        Pomodori zaden geven een overvloedige oogst van donkerrode kerstomaatjes van ca. 50 gram. De smaak is bijzonder en heerlijk zoet. 
-                        Geschikt voor gebruik in uw salades, pasta en saus. 
-                        Pomodori is ook geschikt als patio-tomaat, maar dan wel de plant op tijd de plant toppen als er zich 
-                        voldoende bloemtrossen hebben gevormd.
+                  <div class="info1" style="height: 175px;">
+                    <div class="infot1">
+                      Pomodori zaden geven een overvloedige oogst van donkerrode kerstomaatjes van ca. 50 gram. 
+                      De smaak is bijzonder en heerlijk zoet. Geschikt voor gebruik in uw salades, pasta en saus. 
+                      Pomodori is ook geschikt als patio-tomaat, 
+                      maar dan wel de plant op tijd de plant toppen als er zich voldoende bloemtrossen hebben gevormd.
                     </div>
                   </div>
-                  <div class="info1">
-                    <div class="infol2" style="height: 175px; margin-top: 40px;">
-                        Tomato biologische zaden geven heerlijke groenten! Deze biologische zaden kunnen worden gezaaid van maart tot mei. 
-                        Met deze voordelige zakjes biologische zaden zaait u Biologische zaden planten. 
-                        De exclusieve verpakking met biologische groentezaden bevat gedetailleerde plant- en kweek instructies.
+                  <div class="info1" style="height: 175px; margin-top: 40px;">
+                    <div class="infot2">
+                      Tomato biologische zaden geven heerlijke groenten! Deze biologische zaden kunnen worden gezaaid van maart tot mei. 
+                      Met deze voordelige zakjes biologische zaden zaait u Biologische zaden planten. 
+                      De exclusieve verpakking met biologische groentezaden bevat gedetailleerde plant- en kweek instructies.
                     </div>
                   </div>
-                  <div class="info1">
-                    <div class="infol3" style="height: 175px; margin-top: 30px;">
-                        De Hobby tuinder tomaat is echt een gigant onder de vleestomaten. Geeft binnen 80 dagen enorm grote vruchten met een gewicht tot soms meer dan 700 gram ! 
-                        Een typisch Amerikaanse tomaat, waarbij 1 plak tomaat als garnering ruim voldoende is voor bijv. 
-                        een broodje hamburger of sandwich.
+                  <div class="info1" style="height: 175px; margin-top: 30px;">
+                    <div class="infot3">
+                      De Hobby tuinder tomaat is echt een gigant onder de vleestomaten. 
+                      Geeft binnen 80 dagen enorm grote vruchten met een gewicht tot soms meer dan 700 gram ! 
+                      Een typisch Amerikaanse tomaat, waarbij 1 plak tomaat als garnering ruim voldoende is voor bijv. een broodje hamburger of sandwich.
+
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-xl-4">
+              <div class="col-xl-4 col-md-6">
                 <div class="keuze">
                   <div class="keuze1">
                     <a href="Kweken.html">
@@ -153,8 +289,8 @@
       <footer class="page-footer font-small blue" style="background-color: yellowgreen;">
 
           <!-- Copyright -->
-          <div class="footer-copyright text-center py-3">© 2018 Copyright:
-            <a href="https://mdbootstrap.com/education/bootstrap/"> www.snekattack.com</a>
+          <div class="footer-copyright text-center py-3">
+            <a href="https://mdbootstrap.com/education/bootstrap/">www.nietklikken.com</a>
           </div>
           <!-- Copyright -->
         
