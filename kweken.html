@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css"> 
+
+    <title>Kweken</title>
+
+  </head>
+  <body>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Year', 'Organic seeds', 'Sluis garden', 'Buzzy'],
+            ['2018', 3, 2, 1]
+          ]);
+  
+          var options = {
+            chart: {
+              title: 'Komkommer cm groei per dag',
+              subtitle: 'Organic seeds, Sluis garden, Buzzy: 2018',
+            }
+          };
+  
+          var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+  
+          chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+      </script>
+
+
+
+
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Organic seeds',     2],
+          ['Sluis garden',      3],
+          ['Buzzy',  11],
+          ['Anders', 2]
+        ]);
+
+        var options = {
+          title: 'Komkommer markt procenten'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+</script>
+      <nav class="navbar navbar-expand-lg navbar-green" style="background-color: yellowgreen;">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html" style="color: black;">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Kweken.html" style="color: black;">Kweken</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+        <main>
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-4 col-md-6">
+                <div class="grafiek">
+                  <div class="graph">
+                      <div id="columnchart_material" style="width: 350px; height: 250px;"></div>
+                  </div>
+                  <div class="graph">
+                      <div id="piechart" style="width: 350px; height: 250px;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-md-6">
+                <div class="info">
+                  <div class="info1" style="height: 175px;">
+                    <div class="infot1">
+                        Organic seeds zaden. Oud, maar goed betrouwbaar ras voor de vollegrond of evt.
+                        kas. Geeft ca. 20 cm lange vruchten met een lekkere smaak. De lichte stekels op de wat dikkere vruchten zijn 
+                        positief voor de smaak. Heeft van nature een goede resistentie tegen ziekten.
+                    </div>
+                  </div>
+                  <div class="info1" style="height: 175px; margin-top: 40px;">
+                    <div class="infot2">
+                        De komkommer van sluis garden is een compacte, partenocarpe plant, d.w.z. geen bevruchting nodig via insecten.
+                        Hierdoor duidelijk meer vruchten per plant.
+                        Door de compacte groei is dit soort ideaal om te telen in grote potten of bijv. 
+                        de vierkante meter moestuintjes.
+                    </div>
+                  </div>
+                  <div class="info1" style="height: 175px; margin-top: 30px;">
+                    <div class="infot3">
+                        Buzzy zijn donkergroene bittervrije, gladde vruchten van ca. 35 cm lang en goed resistent. Productief en zeer populair ras met een prima smaak ! 
+                        Geschikt voor vlakveldsteelt en/of een teelt aan draad in de vollegrond.
+                        Bij voorkeur onder glas voorzaaien op potjes van ca. 10 cm.
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-md-6">
+                <div class="keuze">
+                  <div class="keuze1">
+                    <a href="Kweken.html">
+                      <img src="img/komkommer.jpg" alt="komkommer" style="margin-top: 9px;" height="175" width="400">
+                    </a>
+                  </div>
+                  <div class="keuze1">
+                    <a href="Tomaat.html">
+                      <img src="img/tomaat.png" alt="komkommer" style="margin-top: 9px;" height="175" width="400">
+                    </a>                    
+                  </div>
+                  <div class="keuze1">
+                    <a href="radijs.html">
+                      <img src="img/radijs.jpg" alt="komkommer" style="margin-top: 9px;" height="175" width="400">
+                    </a>                    
+                  </div>
+                </div>
+              </div>
+              </div>
+          </div>
+        </main>
+
+  
+      <footer class="page-footer font-small blue" style="background-color: yellowgreen;">
+
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3" >© 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> www.snekattack.com</a>
+          </div>
+          <!-- Copyright -->
+        
+        </footer>
+      </body> 
+</html>

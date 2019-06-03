@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css"> 
+
+    <title>Kweken</title>
+
+  </head>
+  <body>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Year', 'Pomodori', 'Tomato', 'Hobby tuinder'],
+            ['2018', 5, 7, 2]
+          ]);
+  
+          var options = {
+            chart: {
+              title: 'Tomaat cm in diameter groei',
+              subtitle: 'Pomodori, Tomato, Hobby tuinder: 2018',
+            }
+          };
+  
+          var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+  
+          chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+      </script>
+
+
+
+
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Pomodori',     4],
+          ['Tomato',      3],
+          ['Hobby tuinder',  8],
+          ['Anders', 2]
+        ]);
+
+        var options = {
+          title: 'Tomaat markt procenten'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+</script>
+      <nav class="navbar navbar-expand-lg navbar-green" style="background-color: yellowgreen;">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html" style="color: black;">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Kweken.html" style="color: black;">Kweken</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+        <main>
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-4">
+                <div class="grafiek">
+                  <div class="graph">
+                    <div id="columnchart_material" style="width: 350px; height: 250px;"></div>
+                  </div>
+                  <div class="graph">
+                      <div id="piechart" style="width: 350px; height: 250px;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4">
+                <div class="info">
+                  <div class="info1">
+                    <div class="infol1" style="height: 175px;">
+                        Pomodori zaden geven een overvloedige oogst van donkerrode kerstomaatjes van ca. 50 gram. De smaak is bijzonder en heerlijk zoet. 
+                        Geschikt voor gebruik in uw salades, pasta en saus. 
+                        Pomodori is ook geschikt als patio-tomaat, maar dan wel de plant op tijd de plant toppen als er zich 
+                        voldoende bloemtrossen hebben gevormd.
+                    </div>
+                  </div>
+                  <div class="info1">
+                    <div class="infol2" style="height: 175px; margin-top: 40px;">
+                        Tomato biologische zaden geven heerlijke groenten! Deze biologische zaden kunnen worden gezaaid van maart tot mei. 
+                        Met deze voordelige zakjes biologische zaden zaait u Biologische zaden planten. 
+                        De exclusieve verpakking met biologische groentezaden bevat gedetailleerde plant- en kweek instructies.
+                    </div>
+                  </div>
+                  <div class="info1">
+                    <div class="infol3" style="height: 175px; margin-top: 30px;">
+                        De Hobby tuinder tomaat is echt een gigant onder de vleestomaten. Geeft binnen 80 dagen enorm grote vruchten met een gewicht tot soms meer dan 700 gram ! 
+                        Een typisch Amerikaanse tomaat, waarbij 1 plak tomaat als garnering ruim voldoende is voor bijv. 
+                        een broodje hamburger of sandwich.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4">
+                <div class="keuze">
+                  <div class="keuze1">
+                    <a href="Kweken.html">
+                      <img src="img/komkommer.jpg" alt="komkommer" style="margin-top: 9px;" height="175" width="400">
+                    </a>
+                  </div>
+                  <div class="keuze1">
+                    <a href="Tomaat.html">
+                      <img src="img/tomaat.png" alt="komkommer" style="margin-top: 9px;" height="175" width="400">
+                    </a>                    
+                  </div>
+                  <div class="keuze1">
+                    <a href="radijs.html">
+                      <img src="img/radijs.jpg" alt="komkommer" style="margin-top: 9px;" height="175" width="400">
+                    </a>                    
+                  </div>
+                </div>
+              </div>
+              </div>
+          </div>
+        </main>
+
+  
+      <footer class="page-footer font-small blue" style="background-color: yellowgreen;">
+
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> www.snekattack.com</a>
+          </div>
+          <!-- Copyright -->
+        
+        </footer>
+      </body> 
+</html>

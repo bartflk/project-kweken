@@ -1,0 +1,52 @@
+main {
+  background-size: cover;
+  height: 720px;;
+}
+
+body{
+  height: 720px;
+}
+
+.text_header {
+  color: black;
+  padding-top: 300px;
+  margin-left: 100px;
+}
+
+footer {
+  background-color: lightgrey;
+}
+
+.teksost{
+  text-align: center;
+  margin-left: 100px;
+}
+
+.graph {
+  margin-top: 20px;
+}
+
+.info1 {
+  margin-top: 20px;
+}
+
+.keuze1 {
+  margin-top: 20px;
+}
+
+.banner {
+  height: 200px;
+  margin-top: 20px;
+}
+
+p{
+  padding: 0ps;
+}
+
+.vierkant {
+  margin-top: 100px;
+}
+
+.vierkant-text{
+  margin-top: 100px;
+}
